@@ -1,38 +1,162 @@
-.App {
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+/* Define variables on root */
+
+:root {
+  --menu-vertical-adjust: -19px;
+  --menu-indent: 2%;
+  --menu-size: 400px;
+  --menu-cutoff: 120px;
+  --menu-frame-color: gold;
+  --menu-frame-style: dashed;
+  /* --menu-background: a linear gradient that is solidly gold from 0 to 80% and then a smooth transition to navy from 80% to 100% */
+  --menu-background: rgba(0, 0, 128, .4);
+  --menu-button-background: navy;
+  --menu-button-hover-background: #fff;
+  --menu-button-border: 1px solid #ddd;
+  --menu-button-color: #fff;
+  --menu-button-hover-color: black;;
+  --menu-button-padding: 10px;
+  --menu-button-text-decoration: none;
+  --menu-button-transform-origin: center;
+  --menu-button-transform: rotate(0deg);
+  --menu-button-top: 50%;
+  --menu-button-left: 71.75%;
+  --menu-button-hover-left-adjust: 8px;
+  --menu-button-height: 24px;
+
+  --menu-rotation: 10deg;
+  --menu-place-left: -150px;
+  --menu-top: -40px;
+}
+
+.curved-menu {
+  position: absolute;
+  width: var(--menu-size);
+  height: var(--menu-size);
+  border-radius: 50%;
+  z-index: 1;
+  top: var(--menu-vertical-adjust);
+  left: calc(var(--menu-cutoff) * -1);
+  display: block;
+}
+
+.curved-frame {
+  position: relative;
+  width: var(--menu-size);
+  height: var(--menu-size);
+  border-radius: 50%;
+  border: 2px var(--menu-frame-style) var(--menu-frame-color);
+  overflow: hidden;
+  background: var(--menu-background);
+}
+
+.orbit-menu-container {
+  position: fixed;
+  overflow: hidden;
+  top: var(--menu-top);
+  left: var(--menu-place-left);
+  transform: rotate(var(--menu-rotation));
+}
+
+.orbit-menu-container > .curved-frame {
+  position: relative;
+  left: calc(var(--menu-cutoff) * -1);
+}
+
+.menu-button {
+  position: absolute;
+  transform-origin: center;
+  background-color: navy;
+  border: 1px solid #fff;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  width: 80px;
+  height: var(--menu-button-height);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.8);
+}
+
+.menu-button.active {
+  background-color: gold;
+  color: navy;
+  border-color: black;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.menu-button:not(.active):hover {
+  background-color: var(--menu-button-hover-background);
+  color: var(--menu-button-hover-color);
+  transition: all 0.2s ease-in-out;
+  border-color: black;
+}
+
+.btn--1 {
+  transform: rotate(-27deg);
+  top: 20%;
+  left: calc(92.75% - var(--menu-indent));
+}
+
+.btn--1:hover, .btn--1.active {
+  transform: rotate(-23.5deg) scale(1.1);
+  left: calc(92.75% - var(--menu-indent) + var(--menu-button-hover-left-adjust));  
+}
+
+.btn--2 {
+  transform: rotate(-13.5deg);
+  top: 35%;
+  left: calc(98.75% - var(--menu-indent));
+}
+
+.btn--2:hover, .btn--2.active {
+  transform: rotate(-15deg) scale(1.1);
+  left: calc(98.75% - var(--menu-indent) + var(--menu-button-hover-left-adjust));
+}
+
+.btn--3 {
+  transform: rotate(0deg);
+  top: 50%;
+  left: calc(100% + 3px - var(--menu-indent));
+}
+
+.btn--3:hover, .btn--3.active {
+  transform: rotate(0deg) scale(1.1);
+  left: calc(100% + 3px - var(--menu-indent) + var(--menu-button-hover-left-adjust));
+}
+
+.btn--4 {
+  transform: rotate(13.5deg);
+  top: 65%;
+  left: calc(98.75% - var(--menu-indent));
+}
+
+.btn--4:hover, .btn--4.active {
+  transform: rotate(10deg) scale(1.1);
+  left: calc(98.75% - var(--menu-indent) + var(--menu-button-hover-left-adjust));
+}
+
+.btn--5 {
+  transform: rotate(27deg);
+  top: 80%;
+  left: calc(92.75% - var(--menu-indent));
+}
+
+.btn--5:hover, .btn--5.active {
+  transform: rotate(23.5deg) scale(1.1);
+  left: calc(92.75% - var(--menu-indent) + var(--menu-button-hover-left-adjust));
+} 
+/* Adjust the width, height, and other properties as needed */
+
+body, html {
+  margin: 0;
+  background: rgba(0,30,55,1);
+}
+
+.skill {
+  width: 8rem;
+  height: 8rem;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  color: mintcream;
 }
