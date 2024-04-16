@@ -1,12 +1,10 @@
-import { Box, Divider, Grid, List, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import SectionHeader from "../component/SectionHeader";
+import { sectionSx } from "../App";
 
 const Contact = () => {
   return (
-    <Grid container spacing={0} sx={{
-       margin: 'auto', width: '100vw', pr: { lg: 4 }, maxWidth: { xs: '100%', sm: '50%', md: '70%', lg: '80%', xl: '100%'}
-      }}>
-  
+    <Grid container spacing={0} sx={sectionSx}>  
       <Grid item xs={12}>
         <SectionHeader label="Contact Me" />
       </Grid>
@@ -25,7 +23,7 @@ const Contact = () => {
         <Typography color="white" component="span">GitHub: </Typography>
         <Typography color="white" component="a" href="https://github.com/LDK">View Profile</Typography>
       </Grid>
-    </Grid>
+      </Grid>
   );
 }
 

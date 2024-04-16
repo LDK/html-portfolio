@@ -1,5 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import SectionHeader from "../component/SectionHeader";
+import { sectionSx } from "../App";
 
 // Courtesy of devicon.dev
 
@@ -112,9 +113,7 @@ const Skills = () => {
   ];
 
   return (
-    <Grid container spacing={0}  sx={{
-      margin: 'auto', width: '100vw', pr: { lg: 4 }, maxWidth: { xs: '100%', sm: '50%', md: '70%', lg: '80%', xl: '100%'}
-     }}>
+    <Grid container spacing={0}  sx={sectionSx}>
       <SectionHeader label="Select Skills & Expertise" />
 
       {skills.map((skill, idx) => (

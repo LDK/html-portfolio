@@ -8,6 +8,10 @@ import Contact from './section/Contact';
 import useOrbitMenu from './hook/useOrbitMenu';
 import { theme } from './theme';
 
+export const sectionSx = {
+  margin: 'auto', width: '100vw', pr: { lg: 4 }, maxWidth: { xs: '100%', md: '70%', lg: '80%', xl: '100%'}
+};
+
 function App({ active }:{ active?:string }) {
   const { OrbitMenu, activeLink } = useOrbitMenu(active);
 
@@ -15,12 +19,12 @@ function App({ active }:{ active?:string }) {
     <ThemeProvider theme={theme}>
       <Container>
         <OrbitMenu />
-        <Grid container>
-          <Grid item xs={2}>
+        <Grid container sx={{ pt: { xs: '6rem', md: 'none' } }}>
+          <Grid item md={2}>
           </Grid>
-          <Grid item xs={10}>
+          <Grid item xs={12} md={10}>
             <Box width="100%" textAlign={'center'} alignItems={'center'} justifyContent={'center'}>
-              <Typography variant="h3" component="h1" gutterBottom color="white" fontWeight={400} my={2}>
+              <Typography variant="h3" component="h1" gutterBottom color="white" fontWeight={400} my={2} display={{ xs: 'none', md: 'block' }}>
                 Daniel Swinney
               </Typography>
             </Box>

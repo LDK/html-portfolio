@@ -8,9 +8,11 @@
   --menu-size: 400px;
   --menu-cutoff: 120px;
   --menu-frame-color: gold;
+  --menu-frame-color-mobile: white;
   --menu-frame-style: dashed;
   /* --menu-background: a linear gradient that is solidly gold from 0 to 80% and then a smooth transition to navy from 80% to 100% */
   --menu-background: rgba(0, 0, 128, .4);
+  --menu-background-mobile: rgba(0, 0, 128, 1);
   --menu-button-background: navy;
   --menu-button-hover-background: #fff;
   --menu-button-border: 1px solid #ddd;
@@ -159,4 +161,97 @@ body, html {
   height: 8rem;
   text-align: center;
   color: mintcream;
+}
+
+.mobile-title {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  padding: 0;
+  margin-top: .5rem !important;
+}
+
+/* Under 576px screen width */
+@media (max-width: 575px) {
+  .skill {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .orbit-menu-container {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    transform: unset;
+  }
+  
+  .orbit-menu-container > .curved-frame {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3rem;
+    border: unset;
+  }
+  
+  .curved-menu {
+    position: fixed;
+    width: 100%;
+    height: 3rem;
+    border: unset;
+    z-index: 1;
+    top: 0.2rem;
+    left: 0;
+    display: block;
+    text-align: right;
+  }
+  
+  .curved-frame {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    border: unset;
+    border-radius: 0;
+    overflow: hidden;
+    background: var(--menu-background-mobile);
+  }
+
+  .btn--1, .btn--2, .btn--3, .btn--4, .btn--5 {
+    transform: unset;
+    top: 0;
+    left: .25rem;
+    position: relative;
+    width: auto;
+    display: inline-block;
+    border: unset;
+    font-size: .8rem !important;
+  }
+
+  .btn--1:hover, .btn--1.active, .btn--2:hover, .btn--2.active, .btn--3:hover, .btn--3.active, .btn--4:hover, .btn--4.active, .btn--5:hover, .btn--5.active {
+    transform: unset;
+    left: .25rem;
+    width: auto;
+    border: unset;
+    font-size: .8rem;
+  }
+  .menu-button.active {
+    background-color: white;
+    color: navy;
+    border-color: black;
+    transition: all 0.2s ease-in-out;
+    font-weight: normal;
+    font-size: .8rem;
+  }
+  
+}
+
+/* Under 400px screen width */
+@media (max-width: 399px) {
+  .skill {
+    width: 4rem;
+    height: 4rem;
+  }
 }

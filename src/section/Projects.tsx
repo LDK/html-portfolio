@@ -2,6 +2,7 @@ import { Box, Divider, Grid, Typography } from "@mui/material";
 import SectionHeader from "../component/SectionHeader";
 import { skillIcons } from "./Skills";
 import ImageGallery from "react-image-gallery";
+import { sectionSx } from "../App";
 
 export interface ProjectProps {
   title: string;
@@ -146,10 +147,7 @@ const Projects = () => {
   ];
 
   return (
-    <Grid container spacing={0} sx={{
-      margin: 'auto',
-      width: '100vw', pr: { lg: 4 }, maxWidth: { xs: '100%', sm: '50%', md: '70%', lg: '80%', xl: '100%'}
-    }}>
+    <Grid container spacing={0} sx={sectionSx}>
       <SectionHeader label="Solo Projects" />
       {projects.map((project, index) => (
         <Grid container item xs={12} key={index} spacing={0}>
