@@ -53,7 +53,7 @@ const projects:ProjectProps[] = [
         thumbnail: '/images/thumbnails/javascriv-2.png'
       },
     ],
-    description: 'javaScriv is a web-based text editor for writing JavaScript code.  It features a dark mode, syntax highlighting, and a built-in console for testing code.  It is built with React and uses the Monaco Editor for code editing.',
+    description: 'javaScriv is a fully-featured online word processor with helpful organizational and collaborative features.  Organize your writing by chapter/section, and invite others to collaborate on your work.  Export your work to PDF, or import/export to/from JSON for easy backup and sharing, or save your work to the cloud for safe keeping.',
   },
   {
     title: 'Wordle Clone',
