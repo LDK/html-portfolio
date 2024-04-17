@@ -194,6 +194,7 @@ body, html {
     width: 100%;
     height: 3rem;
     transform: unset;
+    z-index: 2;
   }
   
   .orbit-menu-container > .curved-frame {
@@ -344,8 +345,8 @@ body, html {
   
 }
 
-/* Under 401px screen width */
-@media (max-width: 400px) {
+/* Under 451px screen width */
+@media (max-width: 450px) {
   .skill {
     width: 4rem;
     height: 4rem;
