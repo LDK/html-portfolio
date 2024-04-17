@@ -35,6 +35,7 @@ const useOrbitMenu = (defaultActive?:string) => {
       setActiveLink(window.location.pathname.slice(1).split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') || 'About');
       // Scroll to the top of the page when the active link changes
       window.scrollTo(0, 0);
+      // eslint-disable-next-line
     }, [window.location.pathname]);
   
   

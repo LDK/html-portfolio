@@ -1,8 +1,9 @@
 import { Box, Divider, Grid, Typography } from "@mui/material";
 import SectionHeader from "../component/SectionHeader";
-import { skillIcons } from "./Skills";
 import ImageGallery from "react-image-gallery";
 import { sectionSx } from "../App";
+import projects from "../data/projects";
+import { skillIcons } from "../data/skills";
 
 export interface ProjectProps {
   title: string;
@@ -64,6 +65,20 @@ const Project = ({ title, description, url, images, skills, github, features }: 
           </Grid>
           }
 
+          { github &&
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" component="span" pl={0} ml={0} color={'white'}>
+              GitHub:
+            </Typography>
+
+            <Box pl={1} width="1.25rem" height="1.25rem" display="inline-block">
+              <Typography color="white" sx={{ cursor: 'pointer' }} component="a" href={github} target="_blank" rel="noreferrer noopener">
+                {skillIcons.github}
+              </Typography>
+            </Box>
+          </Grid>
+          }
+
 
       </Grid>
 
@@ -71,101 +86,24 @@ const Project = ({ title, description, url, images, skills, github, features }: 
   );
 }
 
-const Projects = () => {
-  const projects:ProjectProps[] = [
-    {
-      title: 'pyGroove',
-      images: [
-        {
-          original: '/images/full/pygroove-1.png',
-          thumbnail: '/images/thumbnails/pygroove-1.png'
-        },
-        {
-          original: '/images/full/pygroove-2.png',
-          thumbnail: '/images/thumbnails/pygroove-2.png'
-        },
-        {
-          original: '/images/full/pygroove-3.png',
-          thumbnail: '/images/thumbnails/pygroove-3.png'
-        },
-      ],
-      description: 'pyGroove is an online groovebox powered by React and Python.  The React interface allows the creation of entire songs within a web browser, with a GUI similar to DAW software such as FL Studio or Ableton Live.  The Python backend generates audio files and waveform imagery from a preset pack of samples with a generous amount of editing options.',
-      skills: ['react', 'python', 'django', 'mysql', 'aws', 'heroku'],
-      github: 'https://github.com/LDK/pygroove',
-      url: 'https://pygroove.electric-bungalow.com',
-      features: [
-        'Step sequencer',
-        'Piano roll',
-        'Sample editor',
-        'Filtering',
-        'Save songs to cloud',
-        'Export songs to MP3'
-      ]
-    },
-    {
-      title: 'javaScriv',
-      url: 'https://javascriv.electric-bungalow.com',
-      skills: ['react', 'express', 'postgresql', 'sass', 'aws', 'heroku'],
-      features: [
-        'WYSIWYG editing',
-        'Folder structure allowing for chapter-by-chapter editing',
-        'Import from Scrivener',
-        'Export to PDF',
-        'Import/Export to/from JSON',
-        'Store work in the cloud',
-        'Collaborate with others on the same project',
-      ],
-      images: [
-        {
-          original: '/images/full/javascriv-1.png',
-          thumbnail: '/images/thumbnails/javascriv-1.png'
-        },
-        {
-          original: '/images/full/javascriv-2.png',
-          thumbnail: '/images/thumbnails/javascriv-2.png'
-        },
-      ],
-      description: 'javaScriv is a web-based text editor for writing JavaScript code.  It features a dark mode, syntax highlighting, and a built-in console for testing code.  It is built with React and uses the Monaco Editor for code editing.',
-    },
-    {
-      title: 'Wordle Clone',
-      url: 'https://wordle.electric-bungalow.com',
-      description: 'A Wordle clone built in React',
-      images: [
-        {
-          original: '/images/full/wordle-1.png',
-          thumbnail: '/images/thumbnails/wordle-1.png'
-        },
-      ],
-      github: 'https://github.com/LDK/react-wordle',
-      features: [
-        'Full dictionary of words',
-        'Play as many games as you like for practice',
-        'Streak-tracking like the original game'
-      ],
-      skills: ['react', 'sass']
-    }
-  ];
-
-  return (
-    <Grid container spacing={0} sx={sectionSx}>
-      <SectionHeader label="Solo Projects" />
-      {projects.map((project, index) => (
-        <Grid container item xs={12} key={index} spacing={0}>
-          <Grid item xs={12}>
-            <Project {...project} />
-          </Grid>
-
-          { index < projects.length - 1 &&
-            <Grid item xs={12} sx={{ my: 4 }}>
-              <Divider sx={{ background: 'white' }} />
-            </Grid>
-          }
+const Projects = () => (
+  <Grid container spacing={0} sx={sectionSx}>
+    <SectionHeader label="Solo Projects" />
+    {projects.map((project, index) => (
+      <Grid container item xs={12} key={index} spacing={0}>
+        <Grid item xs={12}>
+          <Project {...project} />
         </Grid>
-      ))}
-    </Grid>
-  );
 
-};
+        { index < projects.length - 1 &&
+          <Grid item xs={12} sx={{ my: 4 }}>
+            <Divider sx={{ background: 'white' }} />
+          </Grid>
+        }
+      </Grid>
+    ))}
+  </Grid>
+);
+
 
 export default Projects;
