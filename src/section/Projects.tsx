@@ -105,7 +105,7 @@ const Projects = () => {
     {
       title: 'javaScriv',
       url: 'https://javascriv.electric-bungalow.com',
-      skills: ['react', 'express', 'postgresql'],
+      skills: ['react', 'express', 'postgresql', 'sass', 'aws', 'heroku'],
       features: [
         'WYSIWYG editing',
         'Folder structure allowing for chapter-by-chapter editing',
@@ -142,7 +142,8 @@ const Projects = () => {
         'Full dictionary of words',
         'Play as many games as you like for practice',
         'Streak-tracking like the original game'
-      ]
+      ],
+      skills: ['react', 'sass']
     }
   ];
 

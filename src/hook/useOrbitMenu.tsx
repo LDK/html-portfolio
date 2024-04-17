@@ -65,7 +65,7 @@ const useOrbitMenu = (defaultActive?:string) => {
 
   // A mobile version of the menu that is a simple top bar with all the sections laid out horizontally as links
   const MobileMenu = () => (
-    <Box className="mobile-menu" sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'space-around', alignItems: 'center', width: '100%', height: '3rem' }}>
+    <Box className="mobile-menu" sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'space-around', alignItems: 'center', width: '100%' }}>
       <Typography fontWeight={600} pr={1} pl={1} color="white" display={{ xs: 'none', sm: 'inline' }}>Daniel Swinney</Typography>
       {menuItems.map((item, idx) => (
         <Typography px={{ xs: 1, sm: 2 }} key={`btn-${idx + 1}`} color="white" component="a" href={item.href} sx={{ cursor: 'pointer' }} pt={1} pb={1} my={0} onClick={(e) => { onClick(item.label, item.href, e) }} className={

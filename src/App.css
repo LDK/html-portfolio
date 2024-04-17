@@ -59,6 +59,7 @@
   top: var(--menu-top);
   left: var(--menu-place-left);
   transform: rotate(var(--menu-rotation));
+  z-index: 1001;
 }
 
 .orbit-menu-container > .curved-frame {
