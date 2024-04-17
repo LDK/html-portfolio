@@ -1,5 +1,5 @@
 import './App.css';
-import { Box, Container, Grid, ThemeProvider, Typography } from '@mui/material';
+import { Container, Grid, ThemeProvider } from '@mui/material';
 import Skills from './section/Skills';
 import Projects from './section/Projects';
 import About from './section/About';
@@ -20,16 +20,16 @@ function App({ active }:{ active?:string }) {
       <Container>
         <OrbitMenu />
         <MobileMenu />
-        <Grid container sx={{ pt: { xs: '4rem', md: 0 }, mb: 3}}>
+        <Grid container sx={{ pt: { xs: '4rem', md: 0 }, mb: 6}}>
           <Grid item md={3} xl={2}>
           </Grid>
+
           <Grid item xs={12} md={9} xl={10} sx={{mt: { md: '150px' }}}>
             {activeLink === 'Skills' && <Skills />}
             {activeLink === 'Projects' && <Projects />}
             {activeLink === 'About' && <About />}
             {activeLink === 'Experience' && <Experience />}
             {activeLink === 'Contact' && <Contact />}
-
           </Grid>
         </Grid>
       </Container>

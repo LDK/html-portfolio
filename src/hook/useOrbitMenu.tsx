@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, SxProps, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -39,9 +39,18 @@ const useOrbitMenu = (defaultActive?:string) => {
     }, [window.location.pathname]);
   
   
+    const orbitButtonSx:SxProps = {
+      cursor: 'pointer',
+      py: 1,
+      my: 0,
+      color: 'white',
+    };
+
     const OrbitButton = ({ index, href, label }: OrbitButtonProps) => (
-      <Typography component="a" href={href} sx={{ cursor: 'pointer' }} pt={{ md: 1 }} pb={1} my={0} onClick={(e) => { onClick(label, href, e) }} className={
-        `menu-button btn--${index}${label === activeLink ? ' active' : ''}`
+      <Typography component="a" href={href} sx={orbitButtonSx} 
+        onClick={(e) => { onClick(label, href, e) }}
+        className={
+          `menu-button btn--${index}${label === activeLink ? ' active' : ''}`
         }>
         {label}
       </Typography>
@@ -51,11 +60,8 @@ const useOrbitMenu = (defaultActive?:string) => {
       <Box className="orbit-menu-container">
         <div className="curved-frame">
         </div>
-        <div className="curved-menu">
 
-        <Typography className="mobile-title" component="span" gutterBottom color="white" fontWeight={400} display={{ xs: 'inline', md: 'none' }}>
-                Daniel Swinney
-              </Typography>
+        <div className="curved-menu">
           {menuItems.map((item, idx) => (
             <OrbitButton key={`btn-${idx + 1}`} {...{index: idx + 1, ...item}} />
           ))}
@@ -64,14 +70,30 @@ const useOrbitMenu = (defaultActive?:string) => {
     );
   }
 
+  const mobileSx:SxProps = {
+    display: { xs: 'flex', md: 'none' },
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    width: '100%'
+  };
+
+  const mobileItemLabelSx:SxProps = {
+    color: 'white',
+    cursor: 'pointer',
+    margin: '0',
+    py: 1,
+    px: { xs: 1, sm: 2}
+  };
+
   // A mobile version of the menu that is a simple top bar with all the sections laid out horizontally as links
   const MobileMenu = () => (
-    <Box className="mobile-menu" sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'space-around', alignItems: 'center', width: '100%' }}>
-      <Typography fontWeight={600} pr={1} pl={1} color="white" display={{ xs: 'none', sm: 'inline' }}>Daniel Swinney</Typography>
+    <Box className="mobile-menu" sx={mobileSx}>
+      <Typography fontWeight={600} px={1} color="white" display={{ xs: 'none', sm: 'inline' }}>Daniel Swinney</Typography>
+
       {menuItems.map((item, idx) => (
-        <Typography px={{ xs: 1, sm: 2 }} key={`btn-${idx + 1}`} color="white" component="a" href={item.href} sx={{ cursor: 'pointer' }} pt={1} pb={1} my={0} onClick={(e) => { onClick(item.label, item.href, e) }} className={
-          `${item.label === activeLink ? ' active' : ''}`
-          }>
+        <Typography key={`btn-${idx + 1}`} component="a" href={item.href} sx={mobileItemLabelSx}
+          onClick={(e) => { onClick(item.label, item.href, e) }}
+          className={`${item.label === activeLink ? ' active' : ''}`}>
           {item.label}
         </Typography>
       ))}
