@@ -33,6 +33,8 @@ const useOrbitMenu = (defaultActive?:string) => {
     useEffect(() => {
       // Set the active link based on the current path, chopping off the leading slash and converting to title case
       setActiveLink(window.location.pathname.slice(1).split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') || 'About');
+      // Scroll to the top of the page when the active link changes
+      window.scrollTo(0, 0);
     }, [window.location.pathname]);
   
   
