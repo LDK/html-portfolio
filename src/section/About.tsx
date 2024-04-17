@@ -11,7 +11,7 @@ const About = () => {
 
       <Box mb={2}>
         <Typography color="white">
-          Experienced and versatile web developer, specializing in front-end but with a depth of knowledge about back-end systems.  I have experience in creating front-end interfaces, particularly in React, and have also created RESTful APIs in NodeJS and Python, as well as such back-end pieces as custom Drupal modules and various PHP frameworks.  I am well-versed in React, TypeScript, CSS, general JavaScript, and can generally do a little bit of everything and a lot of some things.
+          I am an experienced and versatile web developer, specializing in front-end but with a depth of knowledge about back-end systems.  I have experience in creating front-end interfaces, particularly in React, and have also created RESTful APIs in NodeJS and Python, as well as such back-end pieces as custom Drupal modules and various PHP frameworks.  I am well-versed in React, TypeScript, CSS, general JavaScript, and can generally do a little bit of everything and a lot of some things.
         </Typography>
       </Box>
 
