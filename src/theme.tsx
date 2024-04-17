@@ -14,20 +14,6 @@ declare module '@mui/material/styles' {
 }
 
 const baseThemeOptions:ExtendedThemeOptions = {
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          justifyContent: 'start',
-          paddingTop: '0.25rem',
-          paddingBottom: '0.25rem',
-          fontWeight: 600,
-          fontSize: '.9rem',
-        },
-      },
-    },
-  },
   breakpoints: {
     values: {
       xs: 0,
@@ -44,23 +30,9 @@ const baseThemeOptions:ExtendedThemeOptions = {
       light: '#85b6ff',
       contrastText: '#fff',
     },
-    // something aquatic and greenish
     secondary: {
-      main: '#306F6A',
+      main: '#ffd700',
       dark: '#3A4A3A',
-      contrastText: '#fff',
-    },
-    // a neutral blue-green-grey
-    info: {
-      main: '#5C8D89',
-      contrastText: '#fff',
-    },
-    tray: {
-      main: "rgb(170 186 234 / 67%)",
-    },
-    // more yellow-orange than red-orange
-    warning: {
-      main: '#FFA500',
       contrastText: '#fff',
     },
   },

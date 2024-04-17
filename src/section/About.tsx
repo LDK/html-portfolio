@@ -1,6 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material";
 import SectionHeader from "../component/SectionHeader";
 import { sectionSx } from "../App";
+import { Project } from "./Projects";
+import projects from "../data/projects";
 
 const About = () => {
   return (
@@ -27,7 +29,11 @@ const About = () => {
         </Typography>
       </Box>
 
-      
+      <Typography variant="h5" component="h2" color="white" mt={4} mb={1}>
+        Featured Project:
+      </Typography>
+
+      <Project {...projects[0]} titleVariant="h6" />     
     </Grid>
   );
 }

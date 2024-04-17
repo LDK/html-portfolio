@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, SxProps, Typography, TypographyOwnProps } from "@mui/material";
 import SectionHeader from "../component/SectionHeader";
 import ImageGallery from "react-image-gallery";
 import { sectionSx } from "../App";
@@ -13,13 +13,14 @@ export interface ProjectProps {
   github?: string;
   skills?: (keyof typeof skillIcons)[];
   features?: string[];
+  sx?: SxProps;
+  titleVariant?: TypographyOwnProps['variant'];
 };
 
-const Project = ({ title, description, url, images, skills, github, features }: ProjectProps) => {
-
+export const Project = ({ title, description, url, images, skills, github, features, sx, titleVariant }: ProjectProps) => {
   return (
-    <Box className="project" mx="auto" pl={2}>
-      <Typography variant="h4" component="p" pl={0} ml={0} mb={2} color={'white'}>
+    <Box className="project" sx={{ ...(sx || {}) }}>
+      <Typography variant={titleVariant || 'h4'} component="p" pl={0} ml={0} mb={2} color={'white'}>
         {title} {url && <Typography color="white" component="a" href={url} target="_blank" rel="noreferrer noopener">({url})</Typography>}
       </Typography>
 
@@ -92,7 +93,7 @@ const Projects = () => (
     {projects.map((project, index) => (
       <Grid container item xs={12} key={index} spacing={0}>
         <Grid item xs={12}>
-          <Project {...project} />
+          <Project {...project} sx={{ mx: 'auto', pl: 2 }} />
         </Grid>
 
         { index < projects.length - 1 &&

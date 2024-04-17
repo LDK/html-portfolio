@@ -12,18 +12,6 @@ export const sectionSx = {
   position: 'relative', margin: 'auto', px: 4, pt: { xs: '114px', sm: '64px', md: '0' }
 };
 
-export const NameHeader = () => (
-  <Box width="100%" textAlign={'center'} alignItems={'center'} justifyContent={'center'}>
-    <Typography variant="h3" component="h1" gutterBottom color="white" fontWeight={400} my={2} display={{ xs: 'none', md: 'block' }}>
-      Daniel Swinney
-    </Typography>
-
-    <Typography variant="h5" component="h1" gutterBottom color="white" fontWeight={400} mb={2} display={{ xs: 'block', sm: 'none' }}>
-      Daniel Swinney
-    </Typography>
-  </Box>
-);
-
 function App({ active }:{ active?:string }) {
   const { OrbitMenu, activeLink, MobileMenu } = useOrbitMenu(active);
 
@@ -32,7 +20,7 @@ function App({ active }:{ active?:string }) {
       <Container>
         <OrbitMenu />
         <MobileMenu />
-        <Grid container sx={{ pt: { xs: '4rem', md: 0 }}}>
+        <Grid container sx={{ pt: { xs: '4rem', md: 0 }, mb: 3}}>
           <Grid item md={3} xl={2}>
           </Grid>
           <Grid item xs={12} md={9} xl={10} sx={{mt: { md: '150px' }}}>

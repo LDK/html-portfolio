@@ -1,8 +1,19 @@
 import { Grid, Typography, Divider, Box } from "@mui/material";
-import { NameHeader } from "../App";
+
+const NameHeader = () => (
+  <Box width="100%" textAlign={'center'} alignItems={'center'} justifyContent={'center'}>
+    <Typography variant="h3" component="h1" gutterBottom color="white" fontWeight={400} my={2} display={{ xs: 'none', md: 'block' }}>
+      Daniel Swinney
+    </Typography>
+
+    <Typography variant="h5" component="h1" gutterBottom color="white" fontWeight={400} mb={2} display={{ xs: 'block', sm: 'none' }}>
+      Daniel Swinney
+    </Typography>
+  </Box>
+);
 
 const SectionHeader = ({ label }:{ label:string }) => (
-  <Grid container p={0} m={0} spacing={0}
+  <Grid container p={0} m={0} spacing={0} id="section-header"
   sx={{ textAlign: 'center', position: 'fixed', width: '100%', zIndex: 1000, top: { xs: '40px', md: '0' }, 
   left: 0, pointerEvents: 'none',
   height: 185

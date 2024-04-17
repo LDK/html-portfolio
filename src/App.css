@@ -225,6 +225,10 @@ body, html {
     height: 4rem;
   }
 
+  #section-header {
+    top: 35px !important;
+  }
+
   .mobile-title {
     font-size: .8rem !important;
     font-weight: 500 !important;
