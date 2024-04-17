@@ -32,7 +32,7 @@ const useOrbitMenu = (defaultActive?:string) => {
   const OrbitMenu = () => {
     useEffect(() => {
       // Set the active link based on the current path, chopping off the leading slash and converting to title case
-      setActiveLink(window.location.pathname.slice(1).split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
+      setActiveLink(window.location.pathname.slice(1).split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') || 'About');
     }, [window.location.pathname]);
   
   
@@ -61,7 +61,21 @@ const useOrbitMenu = (defaultActive?:string) => {
     );
   }
 
-  return { OrbitMenu, activeLink };
+  // A mobile version of the menu that is a simple top bar with all the sections laid out horizontally as links
+  const MobileMenu = () => (
+    <Box className="mobile-menu" sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'space-around', alignItems: 'center', width: '100%', height: '3rem' }}>
+      <Typography fontWeight={600} pr={1} pl={1} color="white" display={{ xs: 'none', sm: 'inline' }}>Daniel Swinney</Typography>
+      {menuItems.map((item, idx) => (
+        <Typography px={{ xs: 1, sm: 2 }} key={`btn-${idx + 1}`} color="white" component="a" href={item.href} sx={{ cursor: 'pointer' }} pt={1} pb={1} my={0} onClick={(e) => { onClick(item.label, item.href, e) }} className={
+          `${item.label === activeLink ? ' active' : ''}`
+          }>
+          {item.label}
+        </Typography>
+      ))}
+    </Box>
+  );
+
+  return { OrbitMenu, activeLink, MobileMenu };
 }
 
 export default useOrbitMenu;

@@ -13,18 +13,23 @@ export const sectionSx = {
 };
 
 function App({ active }:{ active?:string }) {
-  const { OrbitMenu, activeLink } = useOrbitMenu(active);
+  const { OrbitMenu, activeLink, MobileMenu } = useOrbitMenu(active);
 
   return (
     <ThemeProvider theme={theme}>
       <Container>
         <OrbitMenu />
-        <Grid container sx={{ pt: { xs: '6rem', md: 4 } }}>
+        <MobileMenu />
+        <Grid container sx={{ pt: { xs: '4rem', md: 4 } }}>
           <Grid item md={3} lg={2}>
           </Grid>
           <Grid item xs={12} md={9} lg={10}>
             <Box width="100%" textAlign={'center'} alignItems={'center'} justifyContent={'center'}>
               <Typography variant="h3" component="h1" gutterBottom color="white" fontWeight={400} my={2} display={{ xs: 'none', md: 'block' }}>
+                Daniel Swinney
+              </Typography>
+
+              <Typography variant="h5" component="h1" gutterBottom color="white" fontWeight={400} mb={2} display={{ xs: 'block', sm: 'none' }}>
                 Daniel Swinney
               </Typography>
             </Box>

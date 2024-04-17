@@ -180,87 +180,32 @@ body, html {
 }
 
 /* Under 768px screen width */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .skill {
     width: 7rem;
     height: 7rem;
   }
 
   .orbit-menu-container {
+    display: none;
+  }
+
+  .mobile-menu {
     position: fixed;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3rem;
-    transform: unset;
     z-index: 2;
-  }
-  
-  .orbit-menu-container > .curved-frame {
-    position: relative;
+    background-color: var(--menu-background-mobile);
     left: 0;
     top: 0;
-    width: 100%;
-    height: 3rem;
-    border: unset;
-  }
-  
-  .curved-menu {
-    position: fixed;
-    width: 100%;
-    height: 3rem;
-    border: unset;
-    z-index: 1;
-    top: 0.2rem;
-    left: 0;
-    display: block;
-    text-align: right;
-  }
-  
-  .curved-frame {
-    position: relative;
-    width: 100%;
-    height: 3rem;
-    border: unset;
-    border-radius: 0;
-    overflow: hidden;
-    background: var(--menu-background-mobile);
   }
 
-  .btn--1, .btn--2, .btn--3, .btn--4, .btn--5 {
-    transform: unset;
-    top: 0;
-    left: .25rem;
-    position: relative;
-    width: auto;
-    display: inline-block;
-    border: unset;
-    font-size: .8rem !important;
+  .mobile-menu > a {
+    text-decoration: none;
   }
 
-  .btn--1:hover, .btn--1.active, .btn--2:hover, .btn--2.active, .btn--3:hover, .btn--3.active, .btn--4:hover, .btn--4.active, .btn--5:hover, .btn--5.active {
-    transform: unset;
-    left: .25rem;
-    width: auto;
-    border: unset;
-    font-size: .8rem;
-  }
-
-  .menu-button {
-    vertical-align: middle;
-  }
-
-  .menu-button.active {
+  .mobile-menu > .active {
     background-color: white;
-    color: navy;
-    border-color: black;
-    transition: all 0.2s ease-in-out;
-    font-weight: normal;
-    font-size: .8rem;
+    color: black;
   }
-  
-
 }
 
 /* Under 576px screen width */
@@ -268,79 +213,6 @@ body, html {
   .skill {
     width: 6rem;
     height: 6rem;
-  }
-
-  .orbit-menu-container {
-    position: fixed;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3rem;
-    transform: unset;
-  }
-  
-  .orbit-menu-container > .curved-frame {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 3rem;
-    border: unset;
-  }
-  
-  .curved-menu {
-    position: fixed;
-    width: 100%;
-    height: 3rem;
-    border: unset;
-    z-index: 1;
-    top: 0.2rem;
-    left: 0;
-    display: block;
-    text-align: right;
-  }
-  
-  .curved-frame {
-    position: relative;
-    width: 100%;
-    height: 3rem;
-    border: unset;
-    border-radius: 0;
-    overflow: hidden;
-    background: var(--menu-background-mobile);
-  }
-
-  .btn--1, .btn--2, .btn--3, .btn--4, .btn--5 {
-    transform: unset;
-    top: 0;
-    left: .25rem;
-    position: relative;
-    width: auto;
-    display: inline-block;
-    border: unset;
-    font-size: .8rem !important;
-  }
-
-  .btn--1:hover, .btn--1.active, .btn--2:hover, .btn--2.active, .btn--3:hover, .btn--3.active, .btn--4:hover, .btn--4.active, .btn--5:hover, .btn--5.active {
-    transform: unset;
-    left: .25rem;
-    width: auto;
-    border: unset;
-    font-size: .8rem;
-  }
-
-  .menu-button {
-    vertical-align: middle;
-  }
-
-  .menu-button.active {
-    background-color: white;
-    color: navy;
-    border-color: black;
-    transition: all 0.2s ease-in-out;
-    font-weight: normal;
-    font-size: .8rem;
   }
   
 }
@@ -352,19 +224,13 @@ body, html {
     height: 4rem;
   }
 
-  .curved-menu {
-    top: 0;
-  }
-
-  .menu-button {
-    font-size: .7rem !important;
-    padding-top: 8px !important;
-    height: 32px;
-  }
-
   .mobile-title {
     font-size: .8rem !important;
     font-weight: 500 !important;
     padding-top: 2px !important;
+  }
+
+  .mobile-menu > * {
+    font-size: .8rem !important;
   }
 }
