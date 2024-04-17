@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const useOrbitMenu = (defaultActive?:string) => {
   interface OrbitButtonProps {
@@ -20,9 +21,23 @@ const useOrbitMenu = (defaultActive?:string) => {
   
   const [activeLink, setActiveLink] = useState(defaultActive || 'About');
 
+  const navigate = useNavigate();
+
+  const onClick = (label: string, href:string, e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveLink(label);
+    navigate(href);
+  }
+
   const OrbitMenu = () => {
+    useEffect(() => {
+      // Set the active link based on the current path, chopping off the leading slash and converting to title case
+      setActiveLink(window.location.pathname.slice(1).split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
+    }, [window.location.pathname]);
+  
+  
     const OrbitButton = ({ index, href, label }: OrbitButtonProps) => (
-      <Typography sx={{ cursor: 'pointer' }} pt={{ md: 1 }} pb={1} my={0} href={href} onClick={() => { setActiveLink(label) }} component="a" className={
+      <Typography component="a" href={href} sx={{ cursor: 'pointer' }} pt={{ md: 1 }} pb={1} my={0} onClick={(e) => { onClick(label, href, e) }} className={
         `menu-button btn--${index}${label === activeLink ? ' active' : ''}`
         }>
         {label}
