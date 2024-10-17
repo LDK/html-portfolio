@@ -7,6 +7,7 @@ import Experience from './section/Experience';
 import Contact from './section/Contact';
 import useOrbitMenu from './hook/useOrbitMenu';
 import { theme } from './theme';
+import Babylon from './section/Babylon';
 
 export const sectionSx = {
   position: 'relative', margin: 'auto', px: 4, pt: { xs: '114px', sm: '64px', md: '0' }
@@ -30,6 +31,7 @@ function App({ active }:{ active?:string }) {
             {activeLink === 'About' && <About />}
             {activeLink === 'Experience' && <Experience />}
             {activeLink === 'Contact' && <Contact />}
+            {activeLink === 'Babylon' && <Babylon />}
           </Grid>
         </Grid>
       </Container>

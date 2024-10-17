@@ -28,6 +28,7 @@ root.render(
       <Route path="/projects" element={<App active="Projects" />} />
       <Route path="/experience" element={<App active="Experience" />} />
       <Route path="/contact" element={<App active="Contact" />} />
+      <Route path="/babylon" element={<App active="Babylon" />} />
     </Routes>
   </BrowserRouter>  
 );
