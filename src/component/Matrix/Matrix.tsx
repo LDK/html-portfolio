@@ -84,18 +84,18 @@ const Matrix = ({ addBox, addEmpty, addLight, rotateEmptyNode, scene, size = 6, 
       addLight({ type: 'point', position: [0,0,0], intensity: .8, parent: matrixRoot });
   
       for (let n = 0; n < size; n++) {
-        const existingRow = scene.getTransformNodeByName(`matrix-row-${n}`);
+        const existingRow = scene.getTransformNodeByName(`matrix-row-${n + 1}`);
         if (existingRow) {
           existingRow.dispose();
         }
   
-        const existingCol = scene.getTransformNodeByName(`matrix-col-${n}`);
+        const existingCol = scene.getTransformNodeByName(`matrix-col-${n + 1}`);
         if (existingCol) {
           existingCol.dispose();
         }
   
-        addEmpty({ name: `matrix-row-${n}`, position: [0,0,0], parent: matrixRoot }); 
-        addEmpty({ name: `matrix-col-${n}`, position: [0,0,0], parent: matrixRoot });
+        addEmpty({ name: `matrix-row-${n + 1}`, position: [0,0,0], parent: matrixRoot }); 
+        addEmpty({ name: `matrix-col-${n + 1}`, position: [0,0,0], parent: matrixRoot });
       }
   
       // Calculate the offset needed to center the matrix

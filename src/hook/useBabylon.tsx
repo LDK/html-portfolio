@@ -192,6 +192,7 @@ export const useBabylon = () => {
     }, []);
 
     const addEmpty = (props: Omit<ObjectProps, 'material'>) => {
+      console.log('addEmpty', props);
       const { name, position, rotation = [0, 0, 0], scaling = [1, 1, 1] } = props;
       if (scene) {
           const empty = new BABYLON.TransformNode(name, scene);
