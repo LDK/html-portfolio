@@ -167,7 +167,7 @@ const MatrixSliceRotator = ({ size, frames, scene, cubeSize }:{ size:number, fra
       if (next === 'row') {
         for (let i = 1; i <= size; i++) {
           if (alternate) {
-            rotateRow(i, frames, !yesNo, (i - 1) * (frames / size) * 1.5, i === size);
+            rotateRow(i, frames, i % 2 === 0, (i - 1) * (frames / size) * 1.5, i === size);
           } else {
             rotateRow(i, frames, yesNo, (i - 1) * (frames / size) * 1.5, i === size);
           }
@@ -175,7 +175,7 @@ const MatrixSliceRotator = ({ size, frames, scene, cubeSize }:{ size:number, fra
       } else if (next === 'column') {
         for (let i = 1; i <= size; i++) {
           if (alternate) {
-            rotateColumn(i, frames, !yesNo, (i - 1) * (frames / size) * 1.5, i === size);
+            rotateColumn(i, frames, i % 2 === 0, (i - 1) * (frames / size) * 1.5, i === size);
           } else {
             rotateColumn(i, frames, yesNo, (i - 1) * (frames / size) * 1.5, i === size);
           }
